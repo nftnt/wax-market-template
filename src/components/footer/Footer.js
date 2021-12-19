@@ -27,22 +27,7 @@ const links = [{
     href: '/blends',
 }]
 
-const companyLinks = [{
-    label: 'FAQ',
-    href: '/faq',
-}, {
-    label: 'Support',
-    href: 'https://support.yoshidrops.com/hc/en-us',
-}, {
-    label: 'LTMs',
-    href: 'https://get.yoshidrops.com/',
-}, {
-    label: 'Terms of Use',
-    href: '/tou',
-}, {
-    label: 'Privacy',
-    href: '/privacy',
-}]
+
 
 function Footer(props) {
 
@@ -56,15 +41,7 @@ function Footer(props) {
         </li>)
     }
 
-    const CompanyList = () => {
-        return companyLinks.map((link, idx) => <li className={cn(
-            'mb-3',
-        )} key={idx}>
-            <Link href={link.href}>
-                <a>{link.label}</a>
-            </Link>
-        </li>)
-    }
+
 
     return (
         <div className={cn(
@@ -75,16 +52,12 @@ function Footer(props) {
                 'text-neutral font-bold text-base mb-4',
                 'grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12'
             )}>
-                <div>
-                    <h3 className={cn(
-                        'text-primary text-2xl',
-                    )}>{config.market_name}</h3>
-                </div>
+             
 
                 <div>
                     <h4 className={cn(
                         'text-primary font-bold text-xl mt-2',
-                    )}>Market Links</h4>
+                    )}>NFTNT Links</h4>
                     <ul className={cn(
                         'text-base font-normal',
                         'mt-4 mb-4'
@@ -93,17 +66,7 @@ function Footer(props) {
                     </ul>
                 </div>
 
-                <div>
-                    <h4 className={cn(
-                        'text-primary font-bold text-xl mt-2',
-                    )}>Company Links</h4>
-                    <ul className={cn(
-                        'text-base font-normal',
-                        'mt-4 mb-4'
-                    )}>
-                        <CompanyList />
-                    </ul>
-                </div>
+               
                 
                 <div>
                     <h4 className={cn(

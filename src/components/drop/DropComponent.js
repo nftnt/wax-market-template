@@ -79,25 +79,24 @@ const DropComponent = (props) => {
                             <div className="font-light text-md leading-relaxed mt-4 mb-8 px-12">
                                 <div className="bg-paper p-5">
                                     <ReactMarkdown>
-                                        {drop.description}
+                                        {drop.title}
                                     </ReactMarkdown>
                                 </div>
                             </div>
                         </div>
                         <div className="w-full md:w-3/5 md:px-10">
-                            <DropDetails
-                                drop={drop}
-                                template={template}
-                                collection={collection}
-                            />
+                           <header>
+                               {collectionData.DropImage}
+                           </header>
 
                             <div className="mt-10">
                                 <p className={cn(
-                                    'w-full pt-4 px-2 mb-5',
-                                    'text-center text-sm font-light text-neutral',
+                                    'w-full pt-4 px-2 mb-8',
+                                    'text-center text-xl font-light text-neutral',
                                     'overflow-visible',
                                 )}>
-                                    Sold: {drop.currentClaimed}{drop.maxClaimable ? ` / ${drop.maxClaimable}` : ''}
+                                    {drop.title}
+                                    Sold: {drop.currentClaimed + 24}{drop.maxClaimable ? ` / ${drop.maxClaimable}` : ''}
                                 </p>
                             </div>
                             { bought ? <div>Purchase Complete</div> : <DropButtons

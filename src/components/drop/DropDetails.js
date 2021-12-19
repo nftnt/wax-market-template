@@ -9,18 +9,24 @@ const DropDetails = (props) => {
     const {name, immutable_data} = template;
 
     return (
-        <div className="text-sm text-white overflow-auto">
+        <div>
+        <div className="text-sm text-white ">
             <h4 className="inline-flex text-primary mb-4">
-                { collection['img'] ? <div className="h-4 mr-3 rounded-lg overflow-hidden">
+                { collection['img'] ? <div className="h-6 mr-3 rounded-lg ">
                     <img src={config.ipfs + collection['img']} className="collection-img" alt="none" />
                 </div> : '' }
                 <Link href={`/collection/${collection.collection_name}`}>
                     <div className='NextLink'>{collection.collection_name}</div>
                 </Link>
             </h4>
+            </div><div>
+
             <h2 className="text-left text-white text-3xl font-bold mb-4">
                 {name}
             </h2>
+           
+            </div>
+            <div>
 
             <table className="w-full my-auto text-lg font-normal">
                 <tr>
@@ -37,11 +43,12 @@ const DropDetails = (props) => {
                 </tr>
                 {Object.keys(immutable_data).map(key => !['image', 'img', 'video', 'backimg', 'img_back'].includes(key) &&
                     <tr>
-                        <td className="text-left w-1/3">{key}:</td>
-                        <td className="text-right overflow-x-auto leading-5 max-w-td">{immutable_data[key]}</td>
+                       
+                      
                     </tr>
                 )}
             </table>
+        </div>
         </div>
     );
 };

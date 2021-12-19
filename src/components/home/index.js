@@ -16,7 +16,7 @@ const Home = () => {
             />
             <HomeSlider />
             <div className={cn('container mx-auto my-20')}>
-                <h4>Page Content goes here</h4>
+                <h4></h4>
             </div>
         </Page>
     );

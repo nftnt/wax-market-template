@@ -8,18 +8,27 @@ import 'swiper/css';
 import cn from "classnames";
 
 const sliderContent = [{
-  background: '//assets.yoshidrops.com/public/promos/LAYA Banner.jpg',
-  headline: 'Music Market',
-  subline: 'This is an awesome subline',
-  btnContent: 'Take me there',
+  background: 'https://nftnt.mypinata.cloud/ipfs/QmYv7vFgkki14cFDsnXFsfY5oRg2NYYc5eLS56Dy2DMJcX',
+  headline: 'The Lore Icons',
+  subline: 'Physical Redemptions, Dynamic Utilites, and 10 Incredible Cryptids are here to collect.',
+  btnContent: 'Packs Only $5.99',
+  btnURL: '/drops/theloreicons'
+},
+{
+  background: 'https://nftnt.mypinata.cloud/ipfs/QmYv7vFgkki14cFDsnXFsfY5oRg2NYYc5eLS56Dy2DMJcX',
+  headline: 'Beta Promo',
+  subline: 'Beta Promo set a new standard for NFTNT, revealing new collections and utilites.',
+  btnContent: 'View on Market',
   btnURL: '/market'
-}, {
-  background: '//assets.yoshidrops.com/public/promos/yoshi_hero1.jpg',
-  headline: 'Get your Music Here',
-  subline: 'Learn more about our mission',
-  btnContent: 'Go to explorer',
-  btnURL: '/explorer'
-}];
+},
+{
+  background: 'https://nftnt.mypinata.cloud/ipfs/QmYv7vFgkki14cFDsnXFsfY5oRg2NYYc5eLS56Dy2DMJcX',
+  headline: 'Alpha Promo',
+  subline: 'The First of the first. NFTNTs breakthrough into the NFT world, a unique peak into the future.',
+  btnContent: 'View on Market',
+  btnURL: '/market'
+},
+];
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function HomeSlider() {

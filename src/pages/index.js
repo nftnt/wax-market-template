@@ -1,10 +1,10 @@
 import React from 'react';
 
 import qs from 'qs';
-import Market from "../components/market";
+import Home from "../components/home";
 
 const HomePage = (props) => {
-    return <Market {...props} />;
+    return <Home {...props} />;
 };
 
 

@@ -174,27 +174,36 @@ const Navigation = React.memo(props => {
                     'uppercase font-bold text-sm',
                     'lg:text-base lg:gap-x-4',
                 )}>                    
-                    <Link href={'https://www.yoshidrops.com/'} external>
+                   <Link href={'/'}>
                         <span className={cn(
                             'pb-px md:pb-2',
+                            router.pathname.match('/') > -1 ? 'border-b-4 border-primary' : '',
                         )}>
-                            Drops
+                            Home
+                        </span>
+                    </Link>
+                  <Link href={'/blends'} >
+                        <span className={cn(
+                            'pb-px md:pb-2',
+                            router.pathname.indexOf('/blends') > -1 ? 'border-b-4 border-primary' : '',
+                        )}>
+                            Blends
+                        </span>
+                    </Link>
+                    <Link href={'/packs'} >
+                        <span className={cn(
+                            'pb-px md:pb-2',
+                            router.pathname.indexOf('/packs') > -1 ? 'border-b-4 border-primary' : '',
+                        )}>
+                            Open Packs
                         </span>
                     </Link>
                     <Link href={'/market'}>
                         <span className={cn(
                             'pb-px md:pb-2',
-                            router.pathname.indexOf('/market') > -1 || router.pathname === '/' ? 'border-b-4 border-primary' : '',
+                            router.pathname.indexOf('/market') > -1  ? 'border-b-4 border-primary' : '',
                         )}>
                             Marketplace
-                        </span>
-                    </Link>
-                    <Link href={'/auctions'}>
-                        <span className={cn(
-                            'pb-px md:pb-2',
-                            router.pathname.indexOf('/auctions') > -1 ? 'border-b-4 border-primary' : '',
-                        )}>
-                            Auction
                         </span>
                     </Link>
                     <Link href={'/drops'}>
@@ -202,25 +211,27 @@ const Navigation = React.memo(props => {
                             'pb-px md:pb-2',
                             router.pathname.indexOf('/drops') > -1 ? 'border-b-4 border-primary' : '',
                         )}>
-                            Yoshi Dailies
+                            Drops
                         </span>
                     </Link>
-                    <div
-                        className={cn(
-                            'block',
-                            'focus-visible:ring-1 focus-visible:ring-inset',
-                            'focus-visible:ring-primary',
-                            'cursor-pointer',
-                        )}
-                        onClick={showDownloadModal}
-                    >
+                    <Link href={'/auctions'}>
                         <span className={cn(
                             'pb-px md:pb-2',
-                            isDownload ? 'border-b-4 border-primary' : '',
+                            router.pathname.indexOf('/auctions') > -1 ? 'border-b-4 border-primary' : '',
                         )}>
-                            Download Player
+                            Auction House
                         </span>
-                    </div>
+                    </Link>
+                 
+                    <Link href={'https://www.nftnt.io/'} external>
+                            <span className={cn(
+                                'pb-px md:pb-2',
+                            )}>
+                                NFTNT.io
+                            </span>
+                        </Link>
+                   
+                
                 </div>
                 {isLoading ? <LoadingIndicator /> : userName ?
                     <div className="w-auto flex justify-center items-center">
@@ -276,7 +287,7 @@ const Navigation = React.memo(props => {
                                                         'hover:text-primary transition-colors',
                                                         router.pathname.indexOf('/inventory') > -1 ? 'border-b-2 border-primary' : '',
                                                     )}>
-                                                        Inventory
+                                                       My Inventory
                                                     </span>
                                                 </Link>
                                             </Menu.Item>
@@ -288,7 +299,7 @@ const Navigation = React.memo(props => {
                                                         'hover:text-primary transition-colors',
                                                         router.pathname.indexOf('/bids') > -1 ? 'border-b-2 border-primary' : '',
                                                     )}>
-                                                        Bids
+                                                       My Bids
                                                     </span>
                                                 </Link>
                                             </Menu.Item>
@@ -312,7 +323,7 @@ const Navigation = React.memo(props => {
                                                         'hover:text-primary transition-colors',
                                                         router.pathname.indexOf('/packs') > -1 ? 'border-b-2 border-primary' : '',
                                                     )}>
-                                                        Boxes
+                                                        My Packs
                                                     </span>
                                                 </Link>
                                             </Menu.Item>
@@ -379,9 +390,17 @@ const Navigation = React.memo(props => {
                         'bg-page shadow-sm border-b border-paper',
                         'w-screen h-screen',
                     )}>
-                        <Link href={'https://www.yoshidrops.com/'} external>
+            <Link href={'/blends'} >
+                        <span className={cn(
+                            'pb-px md:pb-2',
+                        )}>
+                            Blends
+                        </span>
+                    </Link>
+             <Link href={'/drops'}>
                             <span className={cn(
                                 'pb-px md:pb-2',
+                                router.pathname.indexOf('/drops') > -1 ? 'border-b-4 border-primary' : '',
                             )}>
                                 Drops
                             </span>
@@ -399,67 +418,24 @@ const Navigation = React.memo(props => {
                                 'pb-px md:pb-2',
                                 router.pathname.indexOf('/auctions') > -1 ? 'border-b-4 border-primary' : '',
                             )}>
-                                Auction
+                                Auction House
                             </span>
                         </Link>
-                        <Link href={'/drops'}>
+                    
+                        <Link href={'https://www.nftnt.io/'} external>
                             <span className={cn(
                                 'pb-px md:pb-2',
-                                router.pathname.indexOf('/drops') > -1 ? 'border-b-4 border-primary' : '',
                             )}>
-                                Yoshi Dailies
+                                NFTNT.io
                             </span>
                         </Link>
-                        <div
-                            className={cn(
-                                'block',
-                                'focus-visible:ring-1 focus-visible:ring-inset',
-                                'focus-visible:ring-primary',
-                                'cursor-pointer',
-                            )}
-                            onClick={showDownloadModal}
-                        >
-                            <span className={cn(
-                                'pb-px md:pb-2',
-                                isDownload ? 'border-b-4 border-primary' : '',
-                            )}>
-                                Download Player
-                            </span>
-                        </div>
+                   
                     </div>
                 </div>
             )}
             </Transition>
-            {isDownload? <div className={cn(
-                'fixed top-1/2 transform -translate-y-1/2',
-                'left-1/2 transform -translate-x-1/2',
-                'w-72 h-32 bg-paper',
-                'flex flex-row justify-center items-center gap-x-2',
-                'rounded-xl p-8 z-50'
-            )}
-            onMouseLeave={() => setIsDownload(false)}
-            >
-                <div
-                    className="absolute top-4 right-4"
-                    onClick={()=>setIsDownload(false)}                    
-                >
-                    <img src={'/close_btn_bright.svg'} alt="close" className="w-4 h-4" />
-                </div>
-                <Link href={'https://apps.apple.com/us/app/tbd-see-for-yourself/id1242411925'} external>
-                    <img
-                        src="https://storage.googleapis.com/craft-tbd-web/user-uploads/customizables/stores-apple_190827_153033.png?mtime=20190827083033"
-                        alt="Download TBD on the iOS App Store"
-                        className="h-9"
-                    />
-                </Link>
-                <Link href={'https://play.google.com/store/apps/details?id=com.sinclair.tbd&hl=en'} external>
-                    <img
-                        src="https://storage.googleapis.com/craft-tbd-web/user-uploads/customizables/stores-play_190827_153033.png?mtime=20190827083033"
-                        alt="Download TBD on the Google Play Store"
-                        className="h-9"
-                    />
-                </Link>
-            </div>: ''}
+        
+            
         </div>
     );
 });

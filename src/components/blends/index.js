@@ -80,23 +80,14 @@ const Blends = (props) => {
                         <Tab
                             eventKey="nefty.blends"
                             title={
-                                <TabItem user={activeUser} target={'nefty.blends'} tabKey={tabKey} title={'Nefty Blends'} />
+                                <TabItem user={activeUser} target={'nefty.blends'} tabKey={tabKey} title={'All Blends'} />
                             }
                         >
                             {tabKey === 'nefty.blends' &&
                                 <NeftyBlendsList user={activeUser} {...props} />
                             }
                         </Tab>
-                        <Tab
-                            eventKey="blenderizer"
-                            title={
-                                <TabItem target={'blenderizer'} tabKey={tabKey} title={'Blenderizer'} />
-                            }
-                        >
-                            {tabKey === 'blenderizer' &&
-                                <BlenderizerList user={activeUser} {...props} />
-                            }
-                        </Tab>
+
                     </Tabs>}
                 </div>
             </Content>
