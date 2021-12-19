@@ -1,5 +1,5 @@
 {
-    "ipfs": "https://ipfs.hivebp.io/ipfs/",
+    "ipfs": "https://nftnt.mypinata.cloud/ipfs/",
     "atomic_api": "https://wax.api.atomicassets.io",
     "market_name": "nftnt",
     "market_url": "https://nftnt.tools",
@@ -7,7 +7,7 @@
     "api_endpoint": "https://api.waxsweden.org",
     "limit": 12,
     "drops_contract": "neftyblocksd",
-    "packs_contracts": [ "neftyblocksp"],
+    "packs_contracts": "neftyblocksp",
     "header_image": "/Logo.png",
     "telegram_link": "https://t.me/NFTNTOfficial",
     "discord_link": "https://discord.com/invite/",
