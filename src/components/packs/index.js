@@ -16,15 +16,15 @@ import Content from "../common/layout/Content";
 const Packs = (props) => {
     const values = getValues();
 
-    const keys = ['myboxes', 'unclaimed'];
+    const keys = ['mypacks', 'unclaimed'];
     const ual = props['ual'] ? props['ual'] : {'activeUser': null};
 
     const activeUser = ual['activeUser'] && ual['activeUser']['accountName'];
     const loggedOut = activeUser === null;
 
     const [tabKey, setTabKey] = useState(process.browser ? (
-        values['tab'] && keys.includes(values['tab']) ? values['tab'] : 'myboxes'
-    ) : (props.tab && keys.includes(props.tab) ? props.tab : 'myboxes'));
+        values['tab'] && keys.includes(values['tab']) ? values['tab'] : 'mypacks'
+    ) : (props.tab && keys.includes(props.tab) ? props.tab : 'mypacks'));
 
     const initTabs = async(key, user, loggedOut, initial = false) => {
         if (key !== tabKey || initial) {
@@ -72,19 +72,19 @@ const Packs = (props) => {
                         onSelect={(k) => initTabs(k)}
                     >
                         <Tab
-                            eventKey="myboxes"
+                            eventKey="My Packs"
                             title={
-                                <TabItem target={'myboxes'} tabKey={tabKey} title={'My Boxes'} />
+                                <TabItem target={'My Packs'} tabKey={tabKey} title={'My Packs'} />
                             }
                         >
-                        {tabKey === 'myboxes' &&
+                        {tabKey === 'my packs' &&
                             <MyPacksList user={activeUser} {...props} />
                         }
                         </Tab>
                         <Tab
                             eventKey="unclaimed"
                             title={
-                                <TabItem user={activeUser} target={'unclaimed'} tabKey={tabKey} title={'Unclaimed Boxes'} />
+                                <TabItem user={activeUser} target={'unclaimed'} tabKey={tabKey} title={'Unclaimed Packs'} />
                             }
                         >
                         {tabKey === 'unclaimed' &&

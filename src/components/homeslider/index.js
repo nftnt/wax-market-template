@@ -15,14 +15,15 @@ const sliderContent = [{
   btnURL: '/drops/theloreicons'
 },
 {
-  background: 'https://nftnt.mypinata.cloud/ipfs/QmYv7vFgkki14cFDsnXFsfY5oRg2NYYc5eLS56Dy2DMJcX',
+  background: 'https://nftnt.mypinata.cloud/ipfs/QmemmrWhBWR8Q4n7Ums5YLKd3FnfcJFmWNprF8y64Jom2e',
+
   headline: 'Beta Promo',
   subline: 'Beta Promo set a new standard for NFTNT, revealing new collections and utilites.',
   btnContent: 'View on Market',
   btnURL: '/market'
 },
 {
-  background: 'https://nftnt.mypinata.cloud/ipfs/QmYv7vFgkki14cFDsnXFsfY5oRg2NYYc5eLS56Dy2DMJcX',
+  background: 'https://nftnt.mypinata.cloud/ipfs/QmeTgFPKdKyNF9KmYuaYQ91N6pS6STxsvh9aThV82UN5wy',
   headline: 'Alpha Promo',
   subline: 'The First of the first. NFTNTs breakthrough into the NFT world, a unique peak into the future.',
   btnContent: 'View on Market',
@@ -42,8 +43,8 @@ export default function HomeSlider() {
       { sliderContent.map((slide, index) => 
         <SwiperSlide className={cn('w-full h-full')} key={index}>
           <div className={cn(
-            'relative md:absolute h-60 sm:h-80 md:h-auto md:inset-0',
-            'bg-cover bg-center bg-no-repeat',
+            'relative md:absolute h-80 sm:h-80 md:h-auto md:inset-0',
+            'bg-contain bg-center bg-no-repeat',
           )} style={{  
             backgroundImage: `url('${slide.background}')`
           }}></div>

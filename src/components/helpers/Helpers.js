@@ -99,7 +99,7 @@ const getDefaultSort = (pageName) => {
 
 export const getFilters = (values, collections, pageName, page= 1) => {
     const collection = values['collection'] ? values['collection'] : '*';
-    const schema = pageName === 'packs' ? 'boxes' : values['schema'] ? values['schema'] : '';
+    const schema = pageName === 'packs' ? 'packs' : values['schema'] ? values['schema'] : '';
     const name = values['name'] ? values['name'] : '';
     const genre = values['genre'] ? values['genre'] : '';
     const artist = values['artist'] ? values['artist'] : '';
