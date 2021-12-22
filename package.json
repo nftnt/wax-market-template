@@ -60,9 +60,7 @@
     "build": "next build",
     "start": "NODE_ENV=production node server.js"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
+
   "browserslist": {
     "production": [
       ">0.2%",
