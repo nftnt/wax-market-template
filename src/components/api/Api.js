@@ -116,6 +116,16 @@ export const getAuctions = (filters) => {
         atomic_api + `/atomicmarket/v1/auctions?state=1&${getFilterParams(filters)}`).then(
         res => res.json());
 };
+export const getFirstapp = (filters) => {
+    return fetch(
+        atomic_api + `/atomicmarket/v1/auctions?state=1&contract_whitelist=promos.nftnt&template_id=400328&page=1&limit=100&order=desc&sort=created`).then(
+        res => res.json());
+};
+export const getFirstappById = (asset_id) => {
+    return fetch(
+        atomic_api + `/atomicmarket/v1/auctions?&limit=1&asset_id=${asset_id}`).then(
+        res => res.json());
+};
 
 export const getWonAuctions = (filters) => {
     return fetch(
@@ -431,7 +441,8 @@ export const getDrop = async (dropId) => {
                 'endTime': drop.end_time,
                 'startTime': drop.start_time
             };
-
+           
+            
             return null;
         });
     }

@@ -67,7 +67,7 @@ function MyPacksList(props) {
                                     key={index}
                                     index={index}
                                     assets={[asset]}
-                                    page={'packs'}
+                                    page={[packs]}
                                 />
                             ) : ''
                         }

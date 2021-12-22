@@ -182,22 +182,8 @@ const Navigation = React.memo(props => {
                             Home
                         </span>
                     </Link>
-                  <Link href={'/blends'} >
-                        <span className={cn(
-                            'pb-px md:pb-2',
-                            router.pathname.indexOf('/blends') > -1 ? 'border-b-4 border-primary' : '',
-                        )}>
-                            Blends
-                        </span>
-                    </Link>
-                    <Link href={'/packs'} >
-                        <span className={cn(
-                            'pb-px md:pb-2',
-                            router.pathname.indexOf('/packs') > -1 ? 'border-b-4 border-primary' : '',
-                        )}>
-                            Open Packs
-                        </span>
-                    </Link>
+                
+                   
                     <Link href={'/market'}>
                         <span className={cn(
                             'pb-px md:pb-2',
@@ -214,12 +200,12 @@ const Navigation = React.memo(props => {
                             Drops
                         </span>
                     </Link>
-                    <Link href={'/auctions'}>
+                    <Link href={'/firstapp'}>
                         <span className={cn(
                             'pb-px md:pb-2',
-                            router.pathname.indexOf('/auctions') > -1 ? 'border-b-4 border-primary' : '',
+                            router.pathname.indexOf('/firstapp') > -1 ? 'border-b-4 border-primary' : '',
                         )}>
-                            Auction House
+                            First Appearance Auctions
                         </span>
                     </Link>
                  
@@ -230,6 +216,23 @@ const Navigation = React.memo(props => {
                                 NFTNT.io
                             </span>
                         </Link>
+                        <Link href={'/blends'} >
+                        <span className={cn(
+                            'pb-px md:pb-2',
+                            router.pathname.indexOf('/blends') > -1 ? 'border-b-4 border-primary' : '',
+                        )}>
+                            Blends (Coming Soon)
+                        </span>
+                        
+                    </Link>
+                    <Link href={'/packs'} >
+                        <span className={cn(
+                            'pb-px md:pb-2',
+                            router.pathname.indexOf('/packs') > -1 ? 'border-b-4 border-primary' : '',
+                        )}>
+                            Packs (Coming Soon)
+                        </span>
+                    </Link>
                    
                 
                 </div>
@@ -390,13 +393,7 @@ const Navigation = React.memo(props => {
                         'bg-page shadow-sm border-b border-paper',
                         'w-screen h-screen',
                     )}>
-            <Link href={'/blends'} >
-                        <span className={cn(
-                            'pb-px md:pb-2',
-                        )}>
-                            Blends
-                        </span>
-                    </Link>
+            
              <Link href={'/drops'}>
                             <span className={cn(
                                 'pb-px md:pb-2',
@@ -413,15 +410,21 @@ const Navigation = React.memo(props => {
                                 Marketplace
                             </span>
                         </Link>
-                        <Link href={'/auctions'}>
-                            <span className={cn(
-                                'pb-px md:pb-2',
-                                router.pathname.indexOf('/auctions') > -1 ? 'border-b-4 border-primary' : '',
-                            )}>
-                                Auction House
-                            </span>
-                        </Link>
-                    
+                     
+                    <Link href={'/firstapp'} >
+                        <span className={cn(
+                            'pb-px md:pb-2',
+                        )}>
+                            First Appearance Auctions
+                        </span>
+                    </Link>
+                    <Link href={'/blends'} >
+                        <span className={cn(
+                            'pb-px md:pb-2',
+                        )}>
+                            Blends (Coming Soon)
+                        </span>
+                    </Link>
                         <Link href={'https://www.nftnt.io/'} external>
                             <span className={cn(
                                 'pb-px md:pb-2',

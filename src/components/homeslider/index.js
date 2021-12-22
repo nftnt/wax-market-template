@@ -12,7 +12,7 @@ const sliderContent = [{
   headline: 'The Lore Icons',
   subline: 'Physical Redemptions, Dynamic Utilites, and 10 Incredible Cryptids are here to collect.',
   btnContent: 'Packs Only $5.99',
-  btnURL: '/drops/theloreicons'
+  btnURL: '/drop/82692'
 },
 {
   background: 'https://nftnt.mypinata.cloud/ipfs/QmemmrWhBWR8Q4n7Ums5YLKd3FnfcJFmWNprF8y64Jom2e',
@@ -38,7 +38,7 @@ export default function HomeSlider() {
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={0}
       slidesPerView={1}
-      className={cn('h-auto sm:h-80 md:h-96 z-50')}
+      className={cn('h-80 sm:h-80 md:h-96 z-50')}
     >
       { sliderContent.map((slide, index) => 
         <SwiperSlide className={cn('w-full h-full')} key={index}>
@@ -71,7 +71,7 @@ export default function HomeSlider() {
               }
             </div>
           </div>
-        </SwiperSlide>
+        <button className='swiper-button-next'/> </SwiperSlide>
       ) }
     </Swiper>
   );

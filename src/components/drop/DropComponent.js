@@ -90,13 +90,16 @@ const DropComponent = (props) => {
                            </header>
 
                             <div className="mt-10">
+                                    {drop.description}
                                 <p className={cn(
                                     'w-full pt-4 px-2 mb-8',
                                     'text-center text-xl font-light text-neutral',
                                     'overflow-visible',
                                 )}>
-                                    {drop.title}
-                                    Sold: {drop.currentClaimed + 24}{drop.maxClaimable ? ` / ${drop.maxClaimable}` : ''}
+                                   
+                                    Sold: {drop.currentClaimed }{drop.maxClaimable ? ` / ${drop.maxClaimable}` : ''}
+                                        
+                                            
                                 </p>
                             </div>
                             { bought ? <div>Purchase Complete</div> : <DropButtons
