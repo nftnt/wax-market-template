@@ -200,12 +200,12 @@ const Navigation = React.memo(props => {
                             Drops
                         </span>
                     </Link>
-                    <Link href={'/firstapp'}>
+                    <Link href={'/premiumauctions'}>
                         <span className={cn(
                             'pb-px md:pb-2',
-                            router.pathname.indexOf('/firstapp') > -1 ? 'border-b-4 border-primary' : '',
+                            router.pathname.indexOf('/premiumauctions') > -1 ? 'border-b-4 border-primary' : '',
                         )}>
-                            First Appearance Auctions
+                            Premium Auctions
                         </span>
                     </Link>
                  
@@ -411,11 +411,11 @@ const Navigation = React.memo(props => {
                             </span>
                         </Link>
                      
-                    <Link href={'/firstapp'} >
+                    <Link href={'/premiumauctions'} >
                         <span className={cn(
                             'pb-px md:pb-2',
                         )}>
-                            First Appearance Auctions
+                            Premium Auctions
                         </span>
                     </Link>
                     <Link href={'/blends'} >

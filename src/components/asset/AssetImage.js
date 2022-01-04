@@ -61,7 +61,7 @@ const AssetImage = (props) => {
             <div className="absolute flex justify-evenly w-full bottom-5 t-img-btn">
                 {
                     media.map((image, index) =>
-                        media.length > 1 ? (<div className="h-6 text-base align-middle text-white cursor-pointer bg-transparent outline-none border-none" onClick={
+                        media.length > 1 ? (<div className="h-6 text-base fit-content align-middle text-white cursor-pointer bg-transparent outline-none border-none" onClick={
                             () => {setImagePosition(index);}}>
                             <div
                                 className={cn(

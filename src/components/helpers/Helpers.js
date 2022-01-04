@@ -33,22 +33,22 @@ export const claimPack = async (pack, asset, activeUser) => {
         'lower_bound': '',
         'upper_bound': '',
         'reverse': 'false',
-        'scope': asset.asset_id,
+        'scope': pack.contract,
         'show_payer': 'false',
-        'table': 'unboxassets',
+        'table': 'unboxpacks',
         'table_key': ''
     };
 
     const url = config.api_endpoint + '/v1/chain/get_table_rows';
     const res = await post(url, body);
 
-    const origin_roll_ids = [];
+
     const result_templates = [];
 
     if (res && res.status === 200 && res.body && res.body.rows) {
         res.body.rows.map(item => {
-            origin_roll_ids.push(parseInt(item.origin_roll_id))
-            result_templates.push(parseInt(item.template_id))
+            
+            result_templates.push(parseInt(item.pack_asset_id))
             return null;
         });
 
@@ -61,7 +61,6 @@ export const claimPack = async (pack, asset, activeUser) => {
                     permission: activeUser['requestPermission'],
                 }],
                 data: {
-                    origin_roll_ids: origin_roll_ids,
                     pack_asset_id: asset.asset_id
                 },
             }]

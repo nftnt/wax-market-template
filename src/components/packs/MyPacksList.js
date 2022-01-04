@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import cn from "classnames";
 import {Context} from "../marketwrapper";
 import {getFilters, getValues} from "../helpers/Helpers";
-import {getAssets} from "../api/Api";
+import {getAssets, getPacks} from "../api/Api";
 import Pagination from "../pagination/Pagination";
 import LoadingIndicator from "../loadingindicator/LoadingIndicator";
 import AssetPreview from "../assetpreview/AssetPreview";
@@ -30,6 +30,7 @@ function MyPacksList(props) {
         setIsLoading(true);
         getAssets(getFilters(values, state.collections, 'packs', page)).then(
             result => getAssetsResult(result));
+            
     };
 
     useEffect(() => {

@@ -86,7 +86,7 @@ const FirstApps = (props) => {
                 description={config.market_description}
                 image={config.market_image}
             />
-            <Content headline="First Appearance Auctions">
+            <Content headline="Premium Auctions">
                 <div className={cn('w-full grid grid-cols-8 gap-10')}>
                     <div 
                         className={cn(
@@ -108,7 +108,7 @@ const FirstApps = (props) => {
                         { isLoading ? <LoadingIndicator /> : 
                             <div className={cn(
                                 "relative w-full mb-24",
-                                "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                                "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
                             )}>
                                 {listings && listings['success'] && listings['data'].length !== 0 ? listings['data'].map((listing, index) =>
                                     <AssetPreview
