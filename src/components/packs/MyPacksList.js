@@ -4,18 +4,22 @@ import {Context} from "../marketwrapper";
 import {getFilters, getValues} from "../helpers/Helpers";
 import {getAssets, getPacks} from "../api/Api";
 import Pagination from "../pagination/Pagination";
+import MarketContent from "../common/layout/Content";
 import LoadingIndicator from "../loadingindicator/LoadingIndicator";
-import AssetPreview from "../assetpreview/AssetPreview";
+import AssetCard from "../assetcard/AssetCard";
+import { parseString } from 'superagent/lib/client';
 
-function MyPacksList(props) {
+export default function MyPacksList(props) {
     const [ state, dispatch ] = useContext(Context);
 
     const [assets, setAssets] = useState([]);
     const [page, setPage] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
 
-    const values = getValues();
-    values['user'] = props['user'];
+    const values = getValues(props);
+    values['user'] = `${props['user']}`.slice(5);
+    console.log(values['user'])
+   
 
     const initialized = state.collections !== null && state.collections !== undefined;
 
@@ -26,11 +30,11 @@ function MyPacksList(props) {
         setIsLoading(false);
     }
 
-    const initPacks = (page) => {
+    const initPacks = (page, username) => {
         setIsLoading(true);
-        getAssets(getFilters(values, state.collections, 'packs', page)).then(
+        getAssets(getFilters(values, 'thebethalice', 'packs', page)).then(
             result => getAssetsResult(result));
-            
+
     };
 
     useEffect(() => {
@@ -41,21 +45,20 @@ function MyPacksList(props) {
         }
     }, [page, initialized, unboxed]);
 
+
     return (
+        <MarketContent>
         <div className={cn('w-full grid grid-cols-8 gap-10')}>
             <div
                 className={cn(
                     'col-span-8 sm:col-span-8',
                 )}
             >
-
-                { !isLoading &&
-                    <Pagination
-                        items={assets && assets.data}
-                        page={page}
-                        setPage={setPage}
-                    />
-                 }
+                <Pagination
+                    items={assets && assets.data}
+                    page={page}
+                    setPage={setPage}
+                />
                 { isLoading ? <LoadingIndicator /> :
                     <div className={cn(
                         "relative w-full mb-24",
@@ -63,18 +66,18 @@ function MyPacksList(props) {
                     )}>
                         {
                             assets && assets['success'] ? assets['data'].map((asset, index) =>
-                                <AssetPreview
+                                <AssetCard
                                     {...props}
                                     key={index}
                                     index={index}
                                     assets={[asset]}
-                                    page={[packs]}
+                                    page={'packs'}
                                 />
                             ) : ''
                         }
                     </div>
                 }
-                { !isLoading &&
+                {isLoading ? '' :
                     <Pagination
                         items={assets && assets.data}
                         page={page}
@@ -83,7 +86,7 @@ function MyPacksList(props) {
                 }
             </div>
         </div>
+        </MarketContent>
     );
 }
 
-export default MyPacksList;

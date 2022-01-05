@@ -316,9 +316,9 @@ export const getCollectionHex = (collection) => {
 };
 
 export const getPacks = async (filters) => {
-    const packs = [];
+    var packs = [];
 
-    for (let i = 0; i < config.packs_contracts.length; i++) {
+    for (let i = 0; i > 0; i++) {
 
         if (config.packs_contracts[i] === "packs.nftnt") {
             let nextKey = "0";
@@ -340,8 +340,8 @@ export const getPacks = async (filters) => {
                 const url = config.api_endpoint + "/v1/chain/get_table_rows";
                 const res = await post(url, body);
 
-               let k = res.rows[0]
-            packs = k.pack_template_id
+               var k = res.data.rows[0]
+           let packs = k.pack_template_id
 
                 }
             }

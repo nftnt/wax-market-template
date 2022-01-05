@@ -108,14 +108,14 @@ const Navigation = React.memo(props => {
 
     return (
         <div className={cn(
-            'fixed w-full h-16',
+            'top w-full h-15',
             'bg-page shadow-sm border-b border-paper',
             'z-50'
         )}>            
             <div className={cn(
                 'relative container mx-auto py-2',
-                'flex flex-row justify-between itmes-center',
-                'gap-y-3',
+                'flex flex-row justify-between items-center',
+                'gap-y-7',
             )}>
                 <div className="flex lg:hidden">
                     <button
@@ -192,6 +192,14 @@ const Navigation = React.memo(props => {
                             Marketplace
                         </span>
                     </Link>
+                    <Link href={'/packs/user=' + userName}>
+                        <span className={cn(
+                            'pb-px md:pb-2',
+                            router.pathname.indexOf('/packs') > -1 ? 'border-b-4 border-primary' : '',
+                        )}>
+                            Packs (BETA)
+                        </span>
+                    </Link>
                     <Link href={'/drops'}>
                         <span className={cn(
                             'pb-px md:pb-2',
@@ -225,14 +233,7 @@ const Navigation = React.memo(props => {
                         </span>
                         
                     </Link>
-                    <Link href={'/packs'} >
-                        <span className={cn(
-                            'pb-px md:pb-2',
-                            router.pathname.indexOf('/packs') > -1 ? 'border-b-4 border-primary' : '',
-                        )}>
-                            Packs (Coming Soon)
-                        </span>
-                    </Link>
+                   
                    
                 
                 </div>
@@ -319,7 +320,7 @@ const Navigation = React.memo(props => {
                                                 </Link>
                                             </Menu.Item>
                                             <Menu.Item className={cn('mb-3')}>
-                                                <Link href={'/packs?user=' + userName}>
+                                                <Link href={'/packs/user=' + userName}>
                                                     <span className={cn(
                                                         'pb-px',
                                                         'cursor-pointer',

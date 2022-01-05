@@ -6,6 +6,7 @@ export default function Button(
 ) {
   return (
     <button
+      id={id}
       className={cn(
         'focus:outline-none focus-visible:ring-1 focus-visible:ring-inset',
         'focus-visible:ring-primary',
@@ -15,7 +16,6 @@ export default function Button(
         { 'cursor-not-allowed': disabled },
         className
       )}
-      id={id}
       disabled={disabled}
       onClick={onClick}
     >

@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import config from "../../config.json";
 
 import cn from "classnames";
-import PreviewImage from "../assetpreview/PreviewImage";
+import CardImage from "../assetcard/CardImage";
 import LoadingIndicator from "../loadingindicator/LoadingIndicator";
 
 function ResultCard(props) {
@@ -21,12 +21,9 @@ function ResultCard(props) {
         collection, name
     } = template;
 
-    /*
     const {
         collection_name
     } = collection;
-    */
-    const collection_name = 'Collection Name';
 
     return (loading ? <LoadingIndicator/> :
         <div
@@ -35,7 +32,7 @@ function ResultCard(props) {
                 'flex flex-col',
                 'text-base break-words',
                 'backdrop-filter backdrop-blur-sm border border-paper',
-                'shadow-xl bg-paper'
+                'shadow-md bg-paper'
             )}
             id={'ResultCard_' + index}
         >
@@ -46,18 +43,14 @@ function ResultCard(props) {
                     'relative flex items-center leading-4',
                     'text-white leading-relaxed text-sm'
                 )}>
-                    { collection && collection['img'] &&
-                        <div className="h-4 rounded-lg overflow-hidden">
-                            <img src={config.ipfs + collection['img']} className="collection-img" alt="none"/>
-                        </div>
-                    }
-                    { collection_name &&
-                        <div className="font-light ml-2 mr-auto opacity-60 truncate">{collection_name}</div>
-                    }
+                    { collection['img'] ? <div className="h-4 rounded-lg overflow-hidden">
+                        <img src={config.ipfs + collection['img']} className="collection-img" alt="none"/>
+                    </div> : '' }
+                    <div className="font-light ml-2 mr-auto opacity-60 truncate">{collection_name}</div>
                 </div>
             </div>
             <div className="flex flex-1 h-full">
-                <PreviewImage {...props} asset={template} />
+                <CardImage {...props} asset={template} />
             </div>
 
             <div className="relative">

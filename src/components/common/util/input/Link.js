@@ -3,7 +3,7 @@ import cn from 'classnames'
 import NextLink from 'next/link'
 
 export default function Link(
-  { children, className, href, external, hasLink=true }
+  { children, className, href, external }
 ) {
   const linkClassNames = cn(
     'block',
@@ -12,10 +12,6 @@ export default function Link(
     'cursor-pointer',
     className
   )
-  if (!hasLink) {
-    return <div>{children}</div>
-  }
-
   if (external)
     return (
       <a

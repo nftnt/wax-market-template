@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 import {setQueryStringWithoutPageReload, getValues} from "../helpers/Helpers";
-
+import MarketWrapper from "../marketwrapper"
 import {Tab, Tabs} from "react-bootstrap";
 import TabItem from "../tabitem/TabItem";
 
@@ -71,16 +71,20 @@ const Packs = (props) => {
                         id="collection-switch"
                         onSelect={(k) => initTabs(k)}
                     >
+                       
                         <Tab
-                            eventKey="My Packs"
+                            eventKey="my packs"
                             title={
-                                <TabItem target={'My Packs'} tabKey={tabKey} title={'My Packs'} />
+                                <TabItem user={activeUser} target={'my packs'} tabKey={tabKey} title={'My Packs'} />
                             }
                         >
+                            
                         {tabKey === 'my packs' &&
                             <MyPacksList user={activeUser} {...props} />
                         }
+                       
                         </Tab>
+                       
                         <Tab
                             eventKey="unclaimed"
                             title={

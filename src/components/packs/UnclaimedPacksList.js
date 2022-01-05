@@ -3,7 +3,7 @@ import cn from "classnames";
 import MarketContent from "../common/layout/Content";
 import Pagination from "../pagination/Pagination";
 import LoadingIndicator from "../loadingindicator/LoadingIndicator";
-import AssetPreview from "../assetpreview/AssetPreview";
+import AssetCard from "../assetcard/AssetCard";
 import {Context} from "../marketwrapper";
 import {getValues} from "../helpers/Helpers";
 import config from "../../config.json";
@@ -54,6 +54,8 @@ export default function UnclaimedPacksList(props) {
                 });
             }
         });
+
+        console.log(asset_ids);
 
         if (asset_ids.length > 0)
             getAssets({ids: asset_ids, limit: config.limit}).then(res => getAssetsResult(res, unboxer));
@@ -123,7 +125,7 @@ export default function UnclaimedPacksList(props) {
                         )}>
                             {
                                 assets && assets.map((asset, index) =>
-                                    <AssetPreview
+                                    <AssetCard
                                         {...props}
                                         key={index}
                                         index={index}
