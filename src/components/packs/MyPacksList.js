@@ -32,7 +32,7 @@ export default function MyPacksList(props) {
 
     const initPacks = (page, username) => {
         setIsLoading(true);
-        getAssets(getFilters(values, 'thebethalice', 'packs', page)).then(
+        getAssets(getFilters(values, state.collections, 'packs', page)).then(
             result => getAssetsResult(result));
 
     };
