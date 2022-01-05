@@ -30,7 +30,7 @@ export default function MyPacksList(props) {
         setIsLoading(false);
     }
 
-    const initPacks = (page, username) => {
+    const initPacks = (page) => {
         setIsLoading(true);
         getAssets(getFilters(values, state.collections, 'packs', page)).then(
             result => getAssetsResult(result));
