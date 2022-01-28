@@ -517,3 +517,5 @@ export const getWaxBalance = async (name) => {
 
     return post(url, body);
 };
+
+

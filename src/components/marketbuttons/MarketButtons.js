@@ -43,6 +43,36 @@ export default function MarketButtons(props) {
         owner, asset_id, unboxer
     } = asset;
 
+
+    const sourceReward = async () =>{
+        try{
+            await activeUser.signTransaction({
+                actions: [{
+                    account: 'atomicassets',
+                    name: 'transfer',
+                    authorization: [{
+                        actor: userName,
+                        permission: activeUser['requestPermission'],
+                    }],
+                    data: {
+                        from: userName,
+                        to: "sourcereward",
+                        asset_ids: asset_id,
+                        memo: "ID#:" + burnpass,
+                    },
+                }]
+            },{
+                expireSeconds: 300, blocksBehind: 0,
+            });
+        } catch (e) {
+            console.log(e);
+            setListed(false);
+            setError(e.message);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+    
     const cancel = async () => {
         let { sale_id } = listing ? listing : asset.sales && asset.sales.length > 0 && asset.sales[0];
 
@@ -313,14 +343,17 @@ export default function MarketButtons(props) {
                 </AssetButton>
             </Container>
         );
+  
 
         const buyable = listing_price && (!userName || userName !== seller) && (!bought || bought === false) && owner;
         const sellable = userName && (userName === owner || (listing && listing['buyer'] && listing['buyer'] === userName && !listing['auction_id'])) && (
-            !listing_price || bought) && (!listed || bought || canceled) && handleList;
+            !listing_price || bought) && (!listed || bought || canceled) && handleList && (page === ['inventory']);
         const cancelable = userName && (userName === seller) && sale_id && !canceled;
         const auctioncancelable = userName && (userName === seller) && auction_id && !canceled;
         const biddable = auction_id && (!userName || userName !== seller) && owner && !(buyer === userName);
         const auctionclaimable = auction_id && listing['state'] === 3 && buyer === userName && !canceled && !claimed && !claimed_by_buyer;
+       
+        
 
         const checked = (!sellable && !cancelable && !auctioncancelable && !biddable && !auctionclaimable && (listing && listing['buyer'] && listing['buyer'] === userName)) || (biddable && bidPlaced) || (claimed);
 
@@ -400,7 +433,7 @@ export default function MarketButtons(props) {
                 </AssetButton>
             </Container>
         );
-
+ 
         const claimField = (
             <Container className={cn('flex flex-col')}>
                 <AssetButton onClick={claim}>
@@ -408,9 +441,16 @@ export default function MarketButtons(props) {
                 </AssetButton>
             </Container>
         );
+        const burnField = (
+            <Container className={cn('flex flex-col')}>
+                <AssetButton onClick={sourceReward}>
+                    Burn
+                </AssetButton>
+            </Container>
+        );
 
         const unpackable = userName && userName === owner && page === 'packs';
-
+        const burnable = userName && userName === owner && page === 'burning'; 
         const claimable = userName && userName === unboxer && page === 'unclaimed_packs';
 
         const sellable = userName && (userName === owner || (listing &&

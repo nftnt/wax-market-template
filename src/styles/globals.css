@@ -80,3 +80,7 @@ body {
 .left-error {
     left: 15%;
 }
+.burn-btn {
+    border: 10px;
+    padding: 10, 10, 10;
+}

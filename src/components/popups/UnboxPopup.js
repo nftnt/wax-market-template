@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import cn from "classnames";
 import PopupButton from './PopupButton';
 import PopupContent from './PopupContent';
-
+import parsePacks from './ClaimPopup'
 import ErrorMessage from "./ErrorMessage";
 import LoadingIndicator from "../loadingindicator/LoadingIndicator";
 import config from "../../config.json";
@@ -40,7 +40,44 @@ function UnboxPopup(props) {
 
     const [ state, dispatch ] = useContext(Context);
 
- 
+  
+    const loadResults = (templateIds) => {
+        if (templateIds && templateIds.length > 0) {
+            const results = [];
+            for (let i = 0; i < templateIds.length; i++) {
+                templates.map(template => {
+                    if (template.template_id.toString() === templateIds[i].toString()) {
+                        results.push(template);
+                    }
+                })
+            }
+
+            setResults(results);
+
+            if (pack.displayData && pack.displayData.animation && pack.displayData.animation.drawing) {
+                const data = pack.displayData.animation.drawing.data;
+                const video = data ? data.video : null;
+                const bgColor = pack.displayData.animation.drawing.bg_color;
+
+                if (video) {
+                    setAnimation({video: video, bgColor: bgColor});
+                }
+            }
+        } else {
+            throw 'Could not load Pack';
+        }
+        setIsLoading(false);
+    }
+
+    const getPackResult = () => {
+        try {
+            claimPack(pack, asset, activeUser).then(res => loadResults(res));
+        } catch (e) {
+            callBack({unboxed: false, error: e});
+            console.log(e);
+            setError(e.message);
+        }
+    };
   
 
 

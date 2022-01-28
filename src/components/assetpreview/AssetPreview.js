@@ -40,6 +40,7 @@ function AssetPreview(props) {
     const [transferred, setTransferred] = useState(false);
     const [auctionInterval, setAuctionInterval] = useState(null);
     const [auctionTimeLeft, setAuctionTimeLeft] = useState('');
+    const burn = props['burning'];
     const sale = props['sale'];
     const page = props['page'];
 
@@ -249,7 +250,7 @@ function AssetPreview(props) {
             <div className={cn(
                 'flex justify-between my-2 px-2',
             )}>
-                <CollectionTitle collection={collection} />
+             
                 <div
                     onClick={toggleShowMenu}
                     className={cn(
