@@ -1,4 +1,13 @@
 module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/alchemyuk',
+        destination: 'https://alchemyuk.nftnt.tools',
+        permanent: true,
+      },
+    ]
+  },
   webpack: (config, { isServer }) => {
 
     return config
